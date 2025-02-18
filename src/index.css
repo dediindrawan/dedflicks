@@ -1,0 +1,437 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    html,
+    body {
+        @apply scroll-smooth text-gray-300 bg-zinc-950 relative after:fixed after:w-full after:h-3/4 after:bottom-0 after:bg-gradient-to-br after:from-zinc-950 after:from-50% after:to-cyan-950;
+    }
+
+    body {
+        @apply text-sm font-poppins leading-relaxed lg:text-base;
+    }
+
+    input {
+        @apply py-2 px-4 bg-transparent;
+    }
+}
+
+@layer components {
+    .container {
+        @apply min-w-full relative z-10;
+
+        /********** main page style areas **********/
+        & .header {
+            & .brand {
+                @apply w-max h-20 px-4 flex items-center text-2xl font-semibold relative z-10 after:absolute after:w-[1.87rem] after:h-8 after:-z-10 after:left-12 after:rounded-ss-md after:rounded-br-md after:bg-gradient-to-br after:from-orange-300 after:from-25% after:to-cyan-300 sm:mx-16 lg:mx-28;
+
+                & span {
+                    @apply text-zinc-950;
+                }
+            }
+
+            & .banner {
+                @apply p-4 flex justify-between items-center gap-4 bg-gradient-to-r from-zinc-950 to-cyan-950 from-40% sm:px-20 lg:px-32;
+
+                & span {
+                    & h2 {
+                        @apply text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-br from-orange-300 from-10% to-cyan-300;
+                    }
+                }
+
+                & a {
+                    @apply py-2 px-4 text-base font-semibold rounded-full text-zinc-950 bg-gradient-to-br from-orange-300 from-10% to-cyan-300;
+                }
+            }
+        }
+
+        & .navbar {
+            @apply mt-4 mb-10 py-2 px-4 sticky top-0 backdrop-blur-md sm:px-20 lg:px-32;
+
+            & ul {
+                @apply text-xs flex gap-6;
+
+                & li {
+                    & a {
+                        @apply flex flex-col items-center gap-2;
+
+                        & span {
+                            @apply w-12 h-12 rounded-full flex justify-center items-center text-green-300 bg-zinc-800;
+                        }
+                    }
+                }
+
+                & li:first-child {
+                    & span {
+                        @apply text-cyan-300;
+                    }
+                }
+
+                & li:last-child {
+                    & span {
+                        @apply text-orange-300;
+                    }
+                }
+            }
+        }
+
+        & .main-home-page {
+            @apply flex flex-col gap-4;
+
+            & .now-playing-content {
+                & span {
+                    @apply mb-4 px-4 flex justify-between items-center gap-4 sm:px-20 lg:px-32;
+
+                    & h3 {
+                        @apply text-lg font-semibold;
+                    }
+
+                    & a {
+                        @apply flex items-center text-cyan-300;
+                    }
+                }
+
+                & .card-container {
+                    @apply pb-4 flex gap-4 snap-x snap-mandatory overflow-x-auto sm:px-16 lg:px-28;
+
+                    & a {
+                        @apply first:ml-4 last:mr-4 transition-all duration-300 ease-in-out hover:text-cyan-300;
+
+                        & .card-body {
+                            @apply flex flex-col items-center snap-center;
+
+                            & img {
+                                @apply min-w-52 h-[19.5rem] rounded-md;
+                            }
+
+                            & figcaption {
+                                @apply my-2 text-xs;
+
+                                & h3 {
+                                    @apply max-w-52 text-nowrap overflow-x-hidden text-ellipsis;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                & .card-container::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+
+            & .trending-content,
+            .upcoming-content {
+                & span {
+                    @apply mb-4 px-4 flex justify-between items-center gap-4 sm:px-20 lg:px-32;
+
+                    & h3 {
+                        @apply text-lg font-semibold;
+                    }
+
+                    & a {
+                        @apply flex items-center text-cyan-300;
+                    }
+                }
+
+                & .card-container {
+                    @apply pb-4 flex gap-4 snap-x snap-mandatory overflow-x-auto sm:px-16 lg:px-28;
+
+                    & a {
+                        @apply first:ml-4 transition-all duration-300 ease-in-out hover:text-cyan-300;
+
+                        & .card-body {
+                            @apply flex flex-col items-center snap-center;
+
+                            & img {
+                                @apply min-w-32 h-48 rounded-md;
+                            }
+
+                            & figcaption {
+                                @apply my-2 text-xs;
+
+                                & h3 {
+                                    @apply max-w-32 text-nowrap overflow-x-hidden text-ellipsis;
+                                }
+                            }
+                        }
+                    }
+
+                    & .button-card {
+                        @apply min-w-32 h-48 mr-4 snap-start flex justify-center items-center rounded-md border border-cyan-950 text-cyan-300 bg-gradient-to-br from-zinc-950 from-25% to-cyan-950;
+                    }
+                }
+
+                & .card-container::-webkit-scrollbar {
+                    display: none;
+                }
+            }
+        }
+
+        & .footer-home-page {
+            @apply mb-4 flex flex-col items-center sm:px-20 lg:px-32;
+
+            & small {
+                @apply first:mt-4 first:mb-8 first:flex first:gap-1;
+            }
+
+            & img {
+                @apply w-16 mt-1;
+            }
+        }
+
+        /********** movies page style areas **********/
+
+        /* movies page navigation style areas & tv series page navigation style areas & people page navigation style areas */
+        & .movies-page-navigation,
+        & .tv-series-page-navigation,
+        & .people-page-navigation {
+            @apply w-full h-20 px-4 flex justify-between items-center fixed top-0 bg-zinc-950 sm:px-20 lg:px-32;
+
+            & .button-home,
+            & .button-back {
+                @apply flex items-center text-xl;
+            }
+
+            & .button-search {
+                @apply py-2 px-4 text-base font-semibold rounded-full text-zinc-950 bg-gradient-to-br from-orange-300 from-10% to-cyan-300;
+            }
+        }
+
+        & .button-menu {
+            @apply mt-20 pt-2 pb-4 px-4 sticky top-20 bg-zinc-950 sm:px-20 lg:px-32;
+
+            & ul {
+                @apply flex flex-wrap gap-4;
+
+                & li {
+                    @apply flex-1 flex justify-center;
+
+                    & button {
+                        @apply w-full min-w-32 py-2 px-4 font-semibold rounded-full text-nowrap border border-gray-300;
+                    }
+                }
+            }
+        }
+
+        /* main movies page style areas & main tv series page style areas & main people page style areas */
+        & .main-movies-page,
+        & .main-tv-series-page,
+        & .main-people-page,
+        & .main-search-page {
+            @apply mt-4 mx-auto mb-4 px-4 sm:px-20 lg:px-32;
+
+            & .movies-list,
+            & .tv-series-list,
+            & .people-list,
+            & .search-list {
+                @apply grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5;
+
+                & a {
+                    @apply transition-all duration-300 ease-in-out hover:text-cyan-300;
+
+                    & .card-body {
+                        @apply h-full flex flex-col;
+
+                        & img {
+                            @apply h-full max-h-[17rem] min-h-[12.75rem] rounded-md;
+                        }
+
+                        & figcaption {
+                            @apply w-full my-2 text-xs text-center;
+
+                            & h3 {
+                                @apply text-nowrap overflow-x-hidden text-ellipsis;
+                            }
+                        }
+                    }
+                }
+
+                & .search-caption {
+                    @apply mt-10 p-4 col-span-2 text-center sm:col-span-3 lg:col-span-5;
+                }
+            }
+        }
+
+        /********** detail page style areas **********/
+        & .detail-page-navigation {
+            @apply w-full h-20 px-4 flex justify-between items-center fixed top-0 z-50 sm:px-20 lg:px-32;
+
+            & .button-home {
+                @apply flex items-center text-xl;
+            }
+
+            & .button-search {
+                @apply py-2 px-4 text-base font-semibold rounded-full text-zinc-950 bg-gradient-to-br from-orange-300 from-10% to-cyan-300;
+            }
+        }
+
+        & .detail-page-header {
+            @apply w-full h-60 fixed top-0 z-10;
+
+            & figure {
+                @apply w-full h-full after:absolute after:w-full after:h-full after:top-0 after:bg-gradient-to-t after:from-zinc-950 after:to-transparent after:backdrop-blur-sm;
+
+                & img {
+                    @apply w-full h-full object-cover opacity-50;
+                }
+            }
+        }
+
+        & .main-detail-page {
+            @apply relative z-20 sm:px-20 lg:px-32;
+
+            & .movie-clip-section {
+                @apply w-full h-60 flex justify-center items-center cursor-default;
+
+                & .play-icon {
+                    @apply w-12 h-12 p-4 rounded-full cursor-pointer bg-gray-300 opacity-65 bg-opacity-15 transition-all duration-300 ease-in-out hover:text-zinc-950 hover:bg-cyan-300;
+                }
+            }
+
+            & .thumbnail-section {
+                @apply -mt-16 px-4;
+
+                & figure {
+                    @apply flex items-start gap-4;
+
+                    & img {
+                        @apply w-24 rounded-md lg:w-36;
+                    }
+
+                    & figcaption {
+                        @apply w-full flex flex-col gap-2;
+
+                        & h1 {
+                            @apply -mt-[0.35rem] mb-4 text-2xl font-semibold;
+                        }
+
+                        & p {
+                            @apply flex gap-2;
+
+                            & .star-icon,
+                            & .calendar-icon {
+                                @apply mt-[0.1rem] text-orange-300;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            & .detail-section {
+                @apply mt-8;
+
+                & h2 {
+                    @apply mb-6 pb-2 px-4 text-base font-semibold border-b border-gray-300 border-opacity-25 text-cyan-300;
+                }
+
+                & span {
+                    @apply mb-6 px-4 flex flex-col;
+
+                    & h3 {
+                        @apply mb-2;
+                    }
+
+                    & p {
+                        @apply text-zinc-500;
+
+                        & .button-read {
+                            @apply text-cyan-300 text-opacity-50;
+                        }
+                    }
+                }
+            }
+        }
+
+        /********** clip frame page style areas **********/
+        & .clip-frame {
+            @apply w-full min-h-screen;
+        }
+
+        /********** search form page style areas **********/
+        & .search-form-wrapper {
+            @apply w-full p-4 sticky top-0 z-50 flex flex-col gap-4 bg-zinc-950 sm:px-20 lg:px-32;
+
+            & nav {
+                @apply flex-1 flex justify-between relative z-50;
+            }
+
+            & form {
+                @apply w-full flex items-center border border-cyan-300 rounded-full;
+
+                & label {
+                    @apply ml-4;
+                }
+
+                & input {
+                    @apply w-full focus:outline-none;
+                }
+            }
+        }
+    }
+}
+
+@layer utilities {
+    .menu-active {
+        @apply text-zinc-950 bg-gray-300;
+    }
+
+    .loading {
+        @apply w-full min-h-screen grid place-items-center relative z-10;
+    }
+
+    .error-page {
+        @apply relative z-10 min-h-screen px-4 flex justify-center items-center;
+
+        & span {
+            & h1 {
+                @apply mb-4 text-2xl font-semibold;
+            }
+
+            & p {
+                @apply mb-4;
+            }
+
+            & span {
+                @apply mt-12 flex flex-wrap gap-4;
+
+                & button {
+                    @apply py-2 px-4 font-semibold rounded-full text-zinc-950 bg-gradient-to-br from-orange-300 from-10% to-cyan-300;
+                }
+
+                & a {
+                    @apply py-2 px-4 font-semibold text-cyan-300;
+                }
+            }
+        }
+    }
+
+    .button-load-more {
+        @apply mt-4 mb-8 px-4 sm:px-20 lg:px-32;
+
+        & button {
+            @apply w-full py-2 px-4 text-base font-semibold rounded-md border border-gray-300 border-opacity-25 bg-clip-text text-transparent bg-gradient-to-br from-orange-300 to-cyan-300;
+        }
+    }
+
+    .reveal-scroll {
+        animation: reveal-scroll-top ease-in-out;
+        animation-timeline: scroll();
+        animation-range: entry 0% start 0%;
+    }
+
+    @keyframes reveal-scroll-top {
+        from {
+            opacity: 1;
+        }
+
+        to {
+            opacity: 0.3;
+        }
+    }
+}

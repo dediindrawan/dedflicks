@@ -1,0 +1,14 @@
+[
+    {
+        "id": 1,
+        "name": "Now playing"
+    },
+    {
+        "id": 2,
+        "name": "Trending this week"
+    },
+    {
+        "id": 3,
+        "name": "Coming soon"
+    }
+]

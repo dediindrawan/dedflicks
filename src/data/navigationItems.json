@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "path": "/movies",
+        "name": "Movies",
+        "icon": "Clapperboard"
+    },
+    {
+        "id": 2,
+        "path": "/tv-series",
+        "name": "TV Series",
+        "icon": "Tv"
+    },
+    {
+        "id": 3,
+        "path": "/people",
+        "name": "People",
+        "icon": "Users"
+    }
+]
