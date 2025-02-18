@@ -129,19 +129,6 @@ export const DetailPage = () => {
     changeTitle('Details | DedFlicks');
   }, [changeTitle]);
 
-  if (!data) {
-    return (
-      <span className="loading">
-        <p>
-          Failed to load data, please try again later. <br /> <br />{' '}
-          <Link to={'/'} className="underline text-cyan-300">
-            Back to home
-          </Link>
-        </p>
-      </span>
-    );
-  }
-
   return (
     <div className="container">
       <nav className="detail-page-navigation">
