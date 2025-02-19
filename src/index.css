@@ -238,7 +238,7 @@
                         @apply h-full flex flex-col;
 
                         & img {
-                            @apply h-full max-h-[17rem] min-h-[12.75rem] rounded-md;
+                            @apply h-full max-h-[17rem] min-h-[12.75rem] object-cover rounded-md;
                         }
 
                         & figcaption {
@@ -300,7 +300,7 @@
                     @apply flex items-start gap-4;
 
                     & img {
-                        @apply w-24 rounded-md lg:w-36;
+                        @apply w-24 object-cover rounded-md lg:w-36;
                     }
 
                     & figcaption {

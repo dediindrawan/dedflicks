@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLoaderData, useNavigate, useLocation } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
+import noImage from '../assets/no-image.png';
 import { TvSeriesMenu } from '../components/TvSeriesMenu';
 import { CardBody } from '../components/CardBody';
 import { useTitle } from '../context/TitleContext';
@@ -82,7 +83,7 @@ export const TvSeriesPage = () => {
         <section className="tv-series-list">
           {dataTvSeries?.map((data) => (
             <Link to={data?.id ? `/details/tv/${data?.id}` : '#'} key={data?.id}>
-              <CardBody src={`${BASE_IMAGE_URL}${data?.poster_path}`} alt={data?.name}>
+              <CardBody src={data?.poster_path ? `${BASE_IMAGE_URL}${data?.poster_path}` : `${noImage}`} alt={data?.name}>
                 <h3>{data?.name}</h3>
               </CardBody>
             </Link>

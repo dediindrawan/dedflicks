@@ -2,6 +2,7 @@ import { useEffect, useState, useRef } from 'react';
 import { useParams, Link, useLocation } from 'react-router-dom';
 import { Search, ArrowLeft } from 'lucide-react';
 
+import noImage from '../assets/no-image.png';
 import { SearchForm } from '../components/SearchForm';
 import { CardBody } from '../components/CardBody';
 import { useTitle } from '../context/TitleContext';
@@ -88,7 +89,7 @@ export const SearchPage = () => {
           ) : searchData && searchData?.length > 0 ? (
             searchData?.map((data) => (
               <Link to={data?.media_type === 'movie' ? `/details/movie/${data?.id}` : data?.media_type === 'tv' ? `/details/tv/${data?.id}` : data?.media_type === 'person' ? `/details/people/${data?.id}` : '/details'} key={data?.id}>
-                <CardBody src={`${BASE_IMAGE_URL}${data?.poster_path || data?.profile_path}`} alt={data?.name || data?.title}>
+                <CardBody src={data?.poster_path || data?.profile_path ? `${BASE_IMAGE_URL}${data?.poster_path || data?.profile_path}` : `${noImage}`} alt={data?.name || data?.title}>
                   <h3>{data?.name || data?.title}</h3>
                 </CardBody>
               </Link>

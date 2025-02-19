@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft, Play, Star, Calendar, UserCheck, Briefcase } from 'lucide-react';
 
+import noImage from '../assets/no-image.png';
 import { ListDetails } from '../components/ListDetails';
 import { CardBody } from '../components/CardBody';
 import { useTitle } from '../context/TitleContext';
@@ -143,7 +144,7 @@ export const DetailPage = () => {
 
       <header className="detail-page-header">
         <figure>
-          <img src={`${BASE_IMAGE_URL}${data?.backdrop_path || data?.poster_path || data?.profile_path}`} alt={data?.title || data?.name} />
+          <img src={data?.backdrop_path || data?.poster_path || data?.profile_path ? `${BASE_IMAGE_URL}${data?.backdrop_path || data?.poster_path || data?.profile_path}` : `${noImage}`} alt={data?.title || data?.name} />
         </figure>
       </header>
 
@@ -159,10 +160,10 @@ export const DetailPage = () => {
             )}
 
             <section className="thumbnail-section reveal-scroll">
-              <CardBody src={`${BASE_IMAGE_URL}${data?.poster_path || data?.profile_path}`} alt={data?.title || data?.name}>
+              <CardBody src={data?.poster_path || data?.profile_path ? `${BASE_IMAGE_URL}${data?.poster_path || data?.profile_path}` : `${noImage}`} alt={data?.title || data?.name}>
                 <h1>{data?.title || data?.name || 'No Title Available'}</h1>
 
-                {data?.release_date ? (
+                {data?.release_date && data?.vote_average !== undefined ? (
                   <>
                     <p>
                       <Calendar className="calendar-icon" size={16} /> {dateFormated(data?.release_date) || '-'}
@@ -171,7 +172,7 @@ export const DetailPage = () => {
                       <Star className="star-icon" size={16} /> {data?.vote_average.toString().length > 2 ? data?.vote_average.toString().substring(0, 3) : data?.vote_average.toString() + '.0'} / 10.0
                     </p>
                   </>
-                ) : !data?.release_date && !data?.gender ? (
+                ) : !data?.release_date && !data?.gender && data?.vote_average !== undefined ? (
                   <>
                     <p>
                       <Calendar className="calendar-icon" size={16} /> {dateFormated(data?.first_air_date || '-')}

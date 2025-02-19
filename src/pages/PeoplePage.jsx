@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLoaderData, Link, useNavigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 
+import noImage from '../assets/no-image.png';
 import { PeopleMenu } from '../components/PeopleMenu';
 import { CardBody } from '../components/CardBody';
 import { useTitle } from '../context/TitleContext';
@@ -60,7 +61,7 @@ export const PeoplePage = () => {
         <section className="people-list">
           {dataPeople?.map((data) => (
             <Link to={data?.id ? `/details/people/${data?.id}` : '#'} key={data?.id}>
-              <CardBody src={`${BASE_IMAGE_URL}${data?.profile_path}`} alt={data?.name}>
+              <CardBody src={data?.profile_path ? `${BASE_IMAGE_URL}${data?.profile_path}` : `${noImage}`} alt={data?.name}>
                 <h3>{data?.name}</h3>
               </CardBody>
             </Link>
